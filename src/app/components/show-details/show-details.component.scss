@@ -1,0 +1,13 @@
+.tv-show {
+    padding: 2rem 0;
+
+    .upper {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &-image {
+        width: 20vw;
+    }
+
+}

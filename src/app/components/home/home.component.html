@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="tv-shows">
+        <button class="tv-show" *ngFor="let show of tvShowsList" 
+        (click)="navigateTo(show.id)" >
+            <img [src]="show.image_thumbnail_path" alt="{{show.name}} Pic">
+            <h3 class="tv-show-name">
+               {{show.name}}
+            </h3>
+        </button>
+    </div>
+</div>
