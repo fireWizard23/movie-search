@@ -4,10 +4,22 @@
     .upper {
         display: flex;
         gap: 1rem;
+        background-color: black;
+        box-shadow: inset 0px 0px 30px 10px var(--drop-shadow-black);
+        box-sizing: border-box;
+        padding: 3rem;
     }
+
 
     &-image {
         width: 20vw;
+        margin-right: 1rem;
     }
+
+
+    &-description {
+        margin-top: 1rem;
+    }
+
 
 }

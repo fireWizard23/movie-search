@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { TvShow } from 'src/app/models/tv-show.model';
@@ -16,7 +17,11 @@ export class ShowDetailsComponent implements OnInit, OnDestroy {
   private _showSubscription!: Subscription;
 
 
-  constructor(private _activatedRoute : ActivatedRoute, private _httpService: TvShowHttpService) { }
+  constructor(
+    private _activatedRoute : ActivatedRoute,
+    private _httpService: TvShowHttpService,
+    private _titleService : Title
+    ) { }
 
 
   ngOnDestroy(): void {
@@ -30,6 +35,7 @@ export class ShowDetailsComponent implements OnInit, OnDestroy {
 
       this._showSubscription = this._httpService.getShowById(id).subscribe((val) => {
         this.tvShow = val;
+        this._titleService.setTitle('TvS - ' + val.name);
       });
     })
   }

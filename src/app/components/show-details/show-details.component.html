@@ -4,19 +4,23 @@
             <img class="tv-show-image" [src]="tvShow.image_path" [alt]="tvShow.name">
             <div class="left-part">
                 <h1 class="tv-show-name">{{tvShow.name}}</h1>
-                <h3>Genres: 
+                <p><b>Genres: </b> 
                     <span *ngFor="let g of tvShow.genres; let last = last;" >{{g}}{{last ? '' : ',' }} </span>
-                </h3>
+                </p>
                 <p>{{tvShow.rating}}</p>
                 <p>Episode Count: {{tvShow.episodes.length}}</p>
+                <p class="tv-show-description" [innerHtml]="tvShow.description" >
+            
+                    <a class="tv-show-description-source" target="_blank" href="{{tvShow.description_source}}"  >
+                        - Source
+                    </a>
+                </p>
             </div>
         </div>
-        <p class="tv-show-description" [innerHtml]="tvShow.description" >
-            
-            <a class="tv-show-description-source" target="_blank" href="{{tvShow.description_source}}"  >
-                - Source
-            </a>
-        </p>
+        
         <img *ngFor="let img of tvShow.pictures" [src]="img" alt="">
     </div>
 </div>
+
+<h1 *ngIf="tvShow === undefined" >Loading....</h1>
+
